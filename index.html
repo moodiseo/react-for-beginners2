@@ -8,27 +8,22 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
     const root = document.querySelector("#root");
-    function Title() {
+    let counter = 0;
+    function countUp() {
+      counter = counter + 1;
+      Renter();
+    }
+    function Renter() {
+      ReactDOM.render(<Container />, root);
+    }
+    function Container() {
       return (
-        <h3 id="title" onMouseEnter={() => console.log("Mouse Enter")}>
-          Hello I'm a title
-        </h3>
+        <div>
+          <h3>Total clicks: {counter}</h3>
+          <button onClick={countUp}>Click me</button>
+        </div>
       );
     }
-
-    const Button = () => (
-      <button
-        onClick={() => console.log("I'm Clicked")}
-        style={{ backgroundColor: "teal" }}
-      >
-        Click me
-      </button>
-    );
-    const Container = () => (
-      <div>
-        <Title /> <Button />
-      </div>
-    );
-    ReactDOM.render(<Container />, root);
+    Renter();
   </script>
 </html>
