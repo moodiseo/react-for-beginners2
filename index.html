@@ -64,22 +64,22 @@
       return (
         <div>
           <div>
-            <label for="minutes">KM</label>
+            <label for="km">KM</label>
             <input
-              value={inverted ? amount * 60 : amount}
-              id="minutes"
-              placeholder="Minutes"
+              value={inverted ? amount * 1.609344 : amount}
+              id="km"
+              placeholder="KM"
               type="Number"
               onChange={onChange}
               disabled={inverted}
             />
           </div>
           <div>
-            <label for="hours">Miles</label>
+            <label for="miles">Miles</label>
             <input
-              value={inverted ? amount : Math.round(amount / 60)}
-              id="hours"
-              placeholder="Hours"
+              value={inverted ? amount : amount * 0.621371}
+              id="miles"
+              placeholder="Miles"
               type="Number"
               disabled={!inverted}
               onChange={onChange}
